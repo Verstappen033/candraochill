@@ -1,257 +1,730 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Candra Ochill</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candra Ochill | Crypto Growth & Partnership</title>
+  <meta name="description" content="Premium crypto partnership website for KYC service, networking, campaign support, and global collaboration." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060606;
+      --bg-soft: #0d0d0d;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --text: #f5f7fb;
+      --muted: #9ea6b5;
+      --primary: #00ffc3;
+      --secondary: #00aaff;
+      --gold: #d3a84a;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    }
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(180deg, #0a0a0a, #000);
-    color: white;
-}
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-/* ANIMATION */
-.fade {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.8s ease;
-}
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
-}
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0,255,195,0.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(0,170,255,0.12), transparent 24%),
+        linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+      color: var(--text);
+    }
 
-header {
-    text-align: center;
-    padding: 30px;
-    border-bottom: 1px solid #1a1a1a;
-}
+    a { text-decoration: none; }
 
-header h1 {
-    color: #00ffc3;
-    font-size: 32px;
-    letter-spacing: 4px;
-    font-weight: bold;
-}
+    .fade {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: 0.8s ease;
+    }
 
-header p {
-    color: #888;
-}
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(12px);
+      background: rgba(4,4,4,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
 
-.hero h2 {
-    font-size: 42px;
-    background: linear-gradient(90deg, #00ffc3, #00aaff);
-    -webkit-background-clip: text;
-    color: transparent;
-}
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-.hero p {
-    max-width: 700px;
-    margin: 20px auto;
-    color: #aaa;
-    font-size: 16px;
-}
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-.btn {
-    display: inline-block;
-    margin: 10px;
-    padding: 14px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    background: linear-gradient(90deg, #00ffc3, #00aaff);
-    color: black;
-    transition: 0.3s;
-}
+    .brand strong {
+      font-size: 20px;
+      letter-spacing: 3px;
+      color: white;
+    }
 
-.btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 25px #00ffc3;
-}
+    .brand span {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
 
-section {
-    padding: 70px 20px;
-    max-width: 1100px;
-    margin: auto;
-}
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
 
-h2 {
-    text-align: center;
-    color: #00ffc3;
-    margin-bottom: 40px;
-    font-size: 28px;
-}
+    .nav-links a {
+      color: #d8deea;
+      font-size: 14px;
+    }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
+    .nav-links a:hover {
+      color: var(--primary);
+    }
 
-.card {
-    background: #0f0f0f;
-    padding: 25px;
-    border-radius: 15px;
-    border: 1px solid #1f1f1f;
-    transition: 0.3s;
-}
+    .nav-cta {
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #071014 !important;
+      font-weight: 800;
+      box-shadow: 0 0 22px rgba(0,255,195,0.16);
+    }
 
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 30px rgba(0,255,195,0.25);
-}
+    .hero-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 80px 20px 42px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+    }
 
-.card h3 {
-    color: #00ffc3;
-}
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(0,255,195,0.20);
+      background: rgba(0,255,195,0.06);
+      color: #dffef6;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
 
-.footer {
-    text-align: center;
-    padding: 30px;
-    border-top: 1px solid #1a1a1a;
-    color: #777;
-}
-</style>
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.03;
+      letter-spacing: -1.8px;
+    }
 
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--primary), #7ef7ff, var(--secondary));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 720px;
+      margin: 20px 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #071014;
+      box-shadow: 0 12px 35px rgba(0,255,195,0.16);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(0,255,195,0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.10);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(0,255,195,0.35);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -50px -50px auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(0,255,195,0.24), transparent 65%);
+    }
+
+    .hero-card h3 {
+      margin: 0 0 20px;
+      font-size: 22px;
+      color: white;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 34px 20px 84px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .section-title .mini {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .section-title p {
+      max-width: 760px;
+      margin: 16px auto 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      transition: 0.35s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,255,195,0.22);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      color: white;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0,255,195,0.07);
+      border: 1px solid rgba(0,255,195,0.14);
+      color: #dffef6;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .highlight-box {
+      margin-top: 24px;
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(211,168,74,0.08), rgba(0,170,255,0.08));
+      border: 1px solid rgba(211,168,74,0.18);
+      color: #edf3fb;
+      line-height: 1.8;
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: 34px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 { margin: 0 0 14px; }
+    .cta-box p {
+      max-width: 720px;
+      margin: 0 auto 24px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 24px 20px 38px;
+      color: #758093;
+      text-align: center;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.74);
+      z-index: 1000;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(860px, 100%);
+      max-height: 88vh;
+      overflow: auto;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(180deg, #0f1012, #090909);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+      padding: 26px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .service-item {
+      border-radius: 16px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-weight: 600;
+      color: #e8eef8;
+    }
+
+    @media (max-width: 900px) {
+      .hero-wrap {
+        grid-template-columns: 1fr;
+        padding-top: 58px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-box {
+        padding: 22px 18px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="topbar fade">
+    <div class="nav">
+      <div class="brand">
+        <strong>CANDRA OCHILL</strong>
+        <span>Crypto Networking • KYC Service • Partnership</span>
+      </div>
 
-<header class="fade">
-    <h1>CANDRA OCHILL</h1>
-    <p>Crypto Networking • KYC Service • Partnership</p>
-</header>
-
-<section class="hero fade">
-    <h2>Building Scalable Crypto Systems That Drive Real Profit</h2>
-    <p>
-        We connect businesses, traders, and crypto projects into a powerful ecosystem 
-        designed for growth, scalability, and high conversion.
-    </p>
-
-    <a href="https://t.me/Candraochill" class="btn" target="_blank">Telegram</a>
-    <a href="https://twitter.com/Candraochill07" class="btn" target="_blank">Twitter</a>
-</section>
-
-<section class="fade">
-    <h2>Our Services</h2>
-    <div class="grid">
-
-        <div class="card">
-            <h3>KYC Service</h3>
-            <p>Global KYC solutions for exchanges, apps, and airdrop campaigns with fast execution.</p>
-        </div>
-
-        <div class="card">
-            <h3>Airdrop Boost</h3>
-            <p>Scale your campaign with high-volume participants and targeted engagement.</p>
-        </div>
-
-        <div class="card">
-            <h3>Crypto Networking</h3>
-            <p>Access to traders, communities, and strategic partners worldwide.</p>
-        </div>
-
-        <div class="card">
-            <h3>Community Growth</h3>
-            <p>Build active, engaged, and scalable crypto communities.</p>
-        </div>
-
-        <div class="card">
-            <h3>Partnership</h3>
-            <p>We collaborate to launch, scale, and monetize crypto projects globally.</p>
-        </div>
-
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#advantage">Why Us</a>
+        <a href="#performance">Performance</a>
+        <a href="#contact" class="nav-cta">Start Partnership</a>
+      </div>
     </div>
-</section>
+  </div>
 
-<section class="fade">
-    <h2>Why Choose Us</h2>
-    <div class="grid">
-
-        <div class="card">
-            <h3>Global Network</h3>
-            <p>Strong connections across multiple crypto markets and communities.</p>
-        </div>
-
-        <div class="card">
-            <h3>Fast Execution</h3>
-            <p>Speed is everything in crypto — we deliver quickly and efficiently.</p>
-        </div>
-
-        <div class="card">
-            <h3>Scalable System</h3>
-            <p>We build systems that grow with your business without limitations.</p>
-        </div>
-
-        <div class="card">
-            <h3>High Conversion</h3>
-            <p>Focused on results — traffic, users, and real profit.</p>
-        </div>
-
+  <section class="hero-wrap fade">
+    <div class="hero">
+      <div class="badge">Premium Crypto Growth Partner • High Success Rate</div>
+      <h1>Building <span>premium crypto systems</span> that attract users, deals, and long-term growth.</h1>
+      <p>
+        We help serious clients with KYC support, traffic collaboration, campaign scaling, and strategic networking.
+        Built for trust, fast execution, and results that feel more premium from the first click.
+      </p>
+      <div class="hero-actions">
+        <a href="https://t.me/Candraochill" class="btn btn-primary" target="_blank">Start Partnership Now</a>
+        <a href="#services" class="btn btn-secondary">BUY KYC NOW</a>
+      </div>
     </div>
-</section>
 
-<section class="fade">
-    <h2>Our Performance</h2>
-    <div class="grid">
-
-        <div class="card">
-            <h3>Scalable Network</h3>
-            <p>Access to a growing network of crypto users and participants.</p>
+    <div class="hero-card fade">
+      <h3>Why serious partners work with us</h3>
+      <div class="stat-grid">
+        <div class="stat">
+          <strong>Fast</strong>
+          <span>Quick execution and responsive communication for active deals.</span>
         </div>
-
-        <div class="card">
-            <h3>Fast Execution</h3>
-            <p>Efficient handling of KYC processes and campaign distribution.</p>
+        <div class="stat">
+          <strong>Global</strong>
+          <span>Flexible support across multiple projects, platforms, and regions.</span>
         </div>
-
-        <div class="card">
-            <h3>Global Reach</h3>
-            <p>Capability to support projects across multiple regions.</p>
+        <div class="stat">
+          <strong>Private</strong>
+          <span>Discreet handling and direct communication for serious inquiries.</span>
         </div>
-
-        <div class="card">
-            <h3>High Engagement</h3>
-            <p>Focused on delivering active users and real interaction.</p>
+        <div class="stat">
+          <strong>High Rate</strong>
+          <span>Stronger positioning with trust-driven presentation and offer clarity.</span>
         </div>
-
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="hero fade">
-    <h2>Let’s Build Something Big</h2>
-    <p>We are open for serious partnerships and long-term collaboration.</p>
+  <section class="section fade" id="services">
+    <div class="section-title">
+      <span class="mini">Core Services</span>
+      <h2>Services designed for conversion, scale, and stronger positioning</h2>
+      <p>
+        Your old website already had a good base, but it needed a more premium structure, clearer messaging,
+        and stronger action buttons so visitors know exactly what to do next.
+      </p>
+    </div>
 
-    <a href="https://t.me/Candraochill" class="btn">Start Now</a>
-</section>
+    <div class="grid">
+      <div class="card">
+        <h3>KYC Service</h3>
+        <p>Global KYC support with faster handling, premium presentation, and clear trust signals for serious clients.</p>
+        <div class="pill-row">
+          <span class="pill">High Success Rate</span>
+          <span class="pill">Fast Process</span>
+          <span class="pill">Private Handling</span>
+        </div>
+        <div class="pill-row">
+          <a href="#" class="btn btn-primary" id="openKyc" style="padding:12px 18px; margin-top:10px;">See Available KYC</a>
+        </div>
+      </div>
 
-<div class="footer fade">
+      <div class="card">
+        <h3>Airdrop Boost</h3>
+        <p>Campaign support for better visibility, stronger participant flow, and scalable reach for crypto promotions.</p>
+      </div>
+
+      <div class="card">
+        <h3>Crypto Networking</h3>
+        <p>Connect with communities, traders, and ecosystem players to build collaboration faster.</p>
+      </div>
+
+      <div class="card">
+        <h3>Community Growth</h3>
+        <p>Support for building active communities with more engagement and more valuable user activity.</p>
+      </div>
+
+      <div class="card">
+        <h3>Partnership</h3>
+        <p>Long-term cooperation structure for launches, scaling strategies, and mutually profitable growth.</p>
+      </div>
+
+      <div class="card">
+        <h3>Traffic Positioning</h3>
+        <p>Sharper business image for stronger first impressions when people land on your page.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      This upgrade improves the original structure by giving your site a more premium look, clearer sections,
+      stronger CTAs, and an interactive KYC area instead of only a static service card.
+    </div>
+  </section>
+
+  <section class="section fade" id="advantage">
+    <div class="section-title">
+      <span class="mini">Why Choose Us</span>
+      <h2>Built to look more trusted and feel more serious</h2>
+      <p>
+        Instead of a simple landing page, this version positions you more like a premium operator.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Premium First Impression</h3>
+        <p>Dark luxury visuals, cleaner spacing, and stronger hierarchy make the website feel more valuable.</p>
+      </div>
+      <div class="card">
+        <h3>Clear Conversion Path</h3>
+        <p>Visitors can now understand your offer faster and contact you without confusion.</p>
+      </div>
+      <div class="card">
+        <h3>Interactive KYC Section</h3>
+        <p>KYC services are now ready to be shown in a popup, making the site feel more professional.</p>
+      </div>
+      <div class="card">
+        <h3>High-Class Positioning</h3>
+        <p>The wording is more polished and suitable for partnership-focused visitors.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade" id="performance">
+    <div class="section-title">
+      <span class="mini">Performance</span>
+      <h2>Stronger presentation for better response</h2>
+      <p>
+        A cleaner website does not guarantee sales alone, but it does increase trust and makes your offer easier to understand.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Scalable Network</h3>
+        <p>Positioned for future services without needing a full redesign again.</p>
+      </div>
+      <div class="card">
+        <h3>Fast Navigation</h3>
+        <p>Sticky navigation and clear layout help users reach the right section quickly.</p>
+      </div>
+      <div class="card">
+        <h3>Modern Layout</h3>
+        <p>More premium cards, spacing, and section balance for a cleaner business image.</p>
+      </div>
+      <div class="card">
+        <h3>Stronger CTA</h3>
+        <p>Telegram contact is now emphasized more clearly throughout the page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade" id="contact">
+    <div class="cta-box">
+      <h2>Let’s build serious growth together</h2>
+      <p>
+        Open for direct partnership, KYC inquiries, and strategic crypto collaboration.
+        For faster response, contact through Telegram.
+      </p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="https://t.me/Candraochill" class="btn btn-primary" target="_blank">Start on Telegram</a>
+        <a href="#services" class="btn btn-secondary">BUY KYC NOW</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="fade">
     © 2026 Candra Ochill. All Rights Reserved.
-</div>
+  </footer>
 
-<script>
-const faders = document.querySelectorAll('.fade');
+  <div class="modal" id="kycModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="close-btn" id="closeKyc">×</button>
+      <div class="section-title" style="text-align:left; margin-bottom:12px;">
+        <span class="mini">Available KYC Service</span>
+        <h2 style="font-size:30px; margin-bottom:12px;">Ready KYC solutions</h2>
+        <p style="margin:0; max-width:none;">
+          High success rate • Fast process • Private handling
+        </p>
+      </div>
 
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
+      <div class="service-list">
+        <div class="service-item">MEXC kyc + withdraw + risk control </div>
+        <div class="service-item">Bybit KYC Promotion by Link </div>
+        <div class="service-item">BITGET </div>
+        <div class="service-item">AIRTM </div>
+        <div class="service-item">ASTROPAY / ASTROPROXY </div>
+        <div class="service-item">KUCOIN </div>
+        <div class="service-item">BITRUE </div>
+        <div class="service-item">WISE / мудрий </div>
+        <div class="service-item">Moonpay </div>
+        <div class="service-item">OKX </div>
+        <div class="service-item">SUMSUB </div>
+        <div class="service-item">Coinstore </div>
+        <div class="service-item">HTX </div>
+        <div class="service-item">WhiteBIT </div>
+        <div class="service-item">COINBASE </div>
+        <div class="service-item">BINGX </div>
+        <div class="service-item">WorldRemit </div>
+        <div class="service-item">JUMIO </div>
+        <div class="service-item">Sandbox </div>
+        <div class="service-item">AlchemyPay </div>
+        <div class="service-item">COINLIST </div>
+        <div class="service-item">Backpack </div>
+        <div class="service-item">ONFIDO </div>
+        <div class="service-item">Kaito Yaps </div>
+        <div class="service-item">Payoneer </div>
+        <div class="service-item">BANXA </div>
+        <div class="service-item">Pump Fun </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const faders = document.querySelectorAll('.fade');
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('show');
         observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    const modal = document.getElementById('kycModal');
+    const openKyc = document.getElementById('openKyc');
+    const closeKyc = document.getElementById('closeKyc');
+
+    openKyc.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     });
-}, { threshold: 0.2 });
 
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-});
-</script>
+    function closeModal() {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
 
+    closeKyc.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+  </script>
 </body>
 </html>
